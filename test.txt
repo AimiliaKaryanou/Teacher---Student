@@ -1,0 +1,42 @@
+# class Patient(Base):
+#     __tablename__ = "Patients"
+
+#     ID = Column(Integer, primary_key=True, unique=True, autoincrement=True)
+#     FirstName = Column(Text)
+#     LastName = Column(Text)
+#     PatientFolderID = Column(Integer, ForeignKey('PatientFolders.ID'))
+#     AppointmentID = Column(Integer, ForeignKey('Appointments.ID'))  # Assuming you have an 'Appointments' table with an 'ID' column
+
+#     # Define a relationship with the PatientFolders table
+#     patient_folder = relationship("PatientFolder", back_populates="patients")
+
+#     # Define a relationship with the Appointments table
+#     appointment = relationship("Appointment", back_populates="patients")
+
+# class PatientFolder(Base):
+#     __tablename__ = "PatientFolders"
+
+#     ID = Column(Integer, primary_key=True, unique=True, autoincrement=True)
+#     Data = Column(Text)
+#     PatientID = Column(Integer, ForeignKey('Patients.ID'))
+#     DoctorID = Column(Integer, ForeignKey('Doctors.ID'))
+
+#     # Define a relationship with the Patients table
+#     patient = relationship("Patient", back_populates="patient_folder")
+
+#     # Define a relationship with the Doctors table
+#     doctor = relationship("Doctor", back_populates="patient_folder")
+    
+# class Appointment(Base):
+#     __tablename__ = "Appointments"
+
+#     ID = Column(Integer, primary_key=True, unique=True, autoincrement=True)
+#     PatientID = Column(Integer, ForeignKey('Patients.ID'))
+#     DoctorID = Column(Integer, ForeignKey('Doctors.ID'))
+#     Date = Column(Text)
+
+#     # Define a relationship with the Patients table
+#     patient = relationship("Patient", back_populates="appointments")
+
+#     # Define a relationship with the Doctors table
+#     doctor = relationship("Doctor", back_populates="appointments")
